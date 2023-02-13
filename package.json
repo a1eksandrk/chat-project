@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "apps/*"
   ],
   "devDependencies": {
     "concurrently": "^7.6.0"
