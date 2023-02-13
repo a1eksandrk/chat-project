@@ -1,0 +1,11 @@
+{
+  "name": "chat-project",
+  "version": "0.0.1",
+  "repository": "git@github.com:AlexKomz/chat-project.git",
+  "author": "AlexKomz <a.komzoltsev@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
