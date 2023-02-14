@@ -10,7 +10,7 @@ const app: FastifyInstance = fastify({
 
 await app.register(websocketPlugin as unknown as FastifyPluginCallback<WebsocketPluginOptions>)
 
-app.get('/', (request, reply) => {
+app.get('/', async (request, reply) => {
   return { hello: 'world' }
 })
 
