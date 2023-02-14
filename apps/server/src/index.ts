@@ -8,13 +8,15 @@ const app: FastifyInstance = fastify({
   logger: true
 })
 
-await app.register(websocketPlugin as unknown as FastifyPluginCallback<WebsocketPluginOptions>)
+await app.register(
+  websocketPlugin as unknown as FastifyPluginCallback<WebsocketPluginOptions>
+)
 
-app.get('/', async (request, reply) => {
-  return { hello: 'world' }
+app.get('/', (_, reply) => {
+  reply.send({ hello: 'world' })
 })
 
-app.get('/socket', { websocket: true }, (connection, request) => {
+app.get('/socket', { websocket: true }, (connection) => {
   const heartbeat = setInterval(() => {
     connection.socket.send('heartbeat')
   }, 1000)

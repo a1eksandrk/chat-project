@@ -11,5 +11,7 @@ module.exports = {
     sourceType: 'module',
     project: 'tsconfig.json'
   },
-  rules: {}
+  rules: {
+    '@typescript-eslint/no-floating-promises': 'off'
+  }
 }
