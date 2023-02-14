@@ -6,9 +6,10 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "devDependencies": {
-    "concurrently": "^7.6.0"
+    "lerna": "^6.5.1"
   }
 }
