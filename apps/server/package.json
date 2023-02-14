@@ -9,6 +9,7 @@
     "lint": "yarn eslint '**/*.ts'",
     "lint:fix": "yarn eslint --fix '**/*.ts'",
     "build": "yarn tsc --build",
+    "start": "yarn node build/index.js",
     "dev": "yarn nodemon --esm src/index.ts"
   },
   "devDependencies": {
