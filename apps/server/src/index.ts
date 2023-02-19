@@ -1,29 +1,18 @@
 import fastify from 'fastify'
 import websocketPlugin from '@fastify/websocket'
 
+import chatController from './chat/chat.controller.js'
+
 import type { FastifyInstance, FastifyPluginCallback } from 'fastify'
 import type { WebsocketPluginOptions } from '@fastify/websocket'
 
-const app: FastifyInstance = fastify({
-  logger: true
-})
+const app: FastifyInstance = fastify({ logger: true })
 
-await app.register(
-  websocketPlugin as unknown as FastifyPluginCallback<WebsocketPluginOptions>
-)
+app.register(websocketPlugin as unknown as FastifyPluginCallback<WebsocketPluginOptions>)
+app.register(chatController)
 
 app.get('/', (_, reply) => {
   reply.send({ hello: 'world' })
-})
-
-app.get('/socket', { websocket: true }, (connection) => {
-  const heartbeat = setInterval(() => {
-    connection.socket.send('heartbeat')
-  }, 1000)
-
-  connection.socket.on('close', () => {
-    clearInterval(heartbeat)
-  })
 })
 
 const start = async (): Promise<void> => {
@@ -35,4 +24,4 @@ const start = async (): Promise<void> => {
   }
 }
 
-await start()
+start()
