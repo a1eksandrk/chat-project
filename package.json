@@ -5,6 +5,14 @@
   "author": "AlexKomz <a.komzoltsev@gmail.com>",
   "license": "MIT",
   "private": true,
+  "scripts": {
+    "build": "yarn lerna run build",
+    "build:server": "yarn build --scope=@chat-project/server",
+    "build:client": "yarn build --scope=@chat-project/client",
+    "start": "yarn lerna run start",
+    "start:server": "yarn start --scope=@chat-project/server",
+    "start:client": "yarn start --scope=@chat-project/client"
+  },
   "workspaces": [
     "apps/*",
     "packages/*"
